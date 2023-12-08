@@ -59,7 +59,6 @@
     "@typescript-eslint/parser": "^6.13.2",
     "eslint": "^8.55.0",
     "eslint-plugin-jsdoc": "^46.9.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "globals": "^13.23.0",
     "lerna": "^6.0.0",

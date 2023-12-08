@@ -5,7 +5,6 @@ import js from '@eslint/js'
 import tsPlugin from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import jsdoc from 'eslint-plugin-jsdoc'
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
 import reactPlugin from 'eslint-plugin-react'
 import globals from 'globals'
 
@@ -94,12 +93,10 @@ export default [
       },
     },
     plugins: {
-      'jsx-a11y': jsxA11yPlugin,
       react: reactPlugin,
     },
     rules: {
       ...reactPlugin.configs.recommended.rules,
-      ...jsxA11yPlugin.configs.recommended.rules,
       // 'no-alert': 'error',
       // 'no-console': ['error', { allow: ['warn', 'error'] }],
       // 'react/function-component-definition': [
