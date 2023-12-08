@@ -24,7 +24,7 @@ const Meta = () => {
           Skip
           <Hint title="Skip" className="float-right">
             <p className="font-weight-bold">
-              Don't run the component during the study.
+              Do not run the component during the study.
             </p>
             <p className="text-muted">
               This will cause any component to be prepared, but not run.
@@ -63,9 +63,9 @@ const Meta = () => {
               is run.
             </p>
             <p className="text-muted">
-              This is useful if the component depends on information that
-              becomes available only during the study, for example if a screen's
-              content depends on participant behavior.
+              {
+                "This is useful if the component depends on information that becomes available only during the study, for example if a screen's content depends on participant behavior."
+              }
             </p>
             <p className="text-muted">
               Ordinarily, a component is prepared when the page is loaded.
