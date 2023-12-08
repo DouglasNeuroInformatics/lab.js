@@ -43,12 +43,10 @@ const Error = ({ resetError, error, componentStack }) => {
   return (
     <Container>
       <Row>
-        <Col
-          sm={{ size: 4, offset: 4 }}
-          className="text-center my-4"
-        >
+        <Col sm={{ size: 4, offset: 4 }} className="text-center my-4">
           <video
-            autoPlay loop
+            autoPlay
+            loop
             className="rounded-circle shadow"
             style={{
               width: '300px',
@@ -57,82 +55,121 @@ const Error = ({ resetError, error, componentStack }) => {
               objectFit: 'cover',
             }}
           >
-            <source
-              src={ sample(gifs) }
-              type="video/mp4"
-            />
+            <source src={sample(gifs)} type="video/mp4" />
           </video>
         </Col>
       </Row>
       <Row>
         <Col sm={{ size: 6, offset: 3 }}>
           <Alert color="danger" className="my-4">
-            <h4 className="alert-heading mt-2">
-              { sample(mincedOaths) }
-            </h4>
+            <h4 className="alert-heading mt-2">{sample(mincedOaths)}</h4>
             <hr />
             <p className="mb-1">
-              <strong>We're really, really sorry, something just went badly wrong.</strong> In a nutshell, <code>lab.js</code> encountered an error it couldn't recover from, and the application can't run or restart. The team has been alerted.
+              <strong>
+                We are really, really sorry, something just went badly wrong.
+              </strong>{' '}
+              In a nutshell, <code>lab.js</code> encountered an error it
+              could not recover from, and the application cannot run or restart.
+              The team has been alerted.
             </p>
           </Alert>
           <Alert color="light" style={{ background: 'white', border: 'none' }}>
-            <p><strong>We want to help you get back to work as quickly as possible.</strong> Here are a few things to speed up that process:</p>
-            <p>First of all, please make sure you <strong>download a backup</strong> of the study you've been working on. We can almost certainly help you recover your last change, even if the file doesn't load.</p>
+            <p>
+              <strong>
+                We want to help you get back to work as quickly as possible.
+              </strong>{' '}
+              Here are a few things to speed up that process:
+            </p>
+            <p>
+              First of all, please make sure you{' '}
+              <strong>download a backup</strong> of the study you have been
+              working on. We can almost certainly help you recover your last
+              change, even if the file does not load.
+            </p>
             <Button
-              outline color="primary"
-              block size="lg"
-              onClick={ () => {
+              outline
+              color="primary"
+              block
+              size="lg"
+              onClick={() => {
                 stateToDownload(store.getState())
                 setBackup(true)
-              } }
+              }}
             >
               Download study backup
             </Button>
-            <p className="mt-3"><strong>With the backup in hand, you're safe for the moment.</strong> Please <a target="_blank" rel="noopener noreferrer" href="https://lab.js.org/resources/support/"> join the support channel</a> where we would be happy to help you track down and fix the bug. We make mistakes sometimes, but also love to learn how we can improve things, and would be glad to make things better for everyone!</p>
-            <p>There are two more things you can try. <strong>We recommend to only attempt these in consultation with support.</strong> You'll need to download a backup of your current study first.</p>
+            <p className="mt-3">
+              <strong>
+                With the backup in hand, you are safe for the moment.
+              </strong>{' '}
+              Please{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://lab.js.org/resources/support/"
+              >
+                {' '}
+                join the support channel
+              </a>{' '}
+              where we would be happy to help you track down and fix the bug. We
+              make mistakes sometimes, but also love to learn how we can improve
+              things, and would be glad to make things better for everyone!
+            </p>
+            <p>
+              There are two more things you can try.{' '}
+              <strong>
+                We recommend to only attempt these in consultation with support.
+              </strong>{' '}
+              You will need to download a backup of your current study first.
+            </p>
             <ButtonGroup className="w-100">
               <Button
-                outline className="w-50 py-3"
-                disabled={ !backup }
-                onClick={ () => {
+                outline
+                className="w-50 py-3"
+                disabled={!backup}
+                onClick={() => {
                   store.dispatch({
                     type: 'SHOW_COMPONENT_DETAIL',
                     id: undefined,
                   })
                   resetError()
-                } }
+                }}
               >
-                Close currently<br />
+                Close currently
+                <br />
                 open component
               </Button>
               <Button
-                outline className="w-50 py-3"
-                disabled={ !backup }
-                onClick={ () => {
-                  const warning = 'This will discard the currently active study. Are you sure?'
+                outline
+                className="w-50 py-3"
+                disabled={!backup}
+                onClick={() => {
+                  const warning =
+                    'This will discard the currently active study. Are you sure?'
 
                   if (window.confirm(warning)) {
                     store.dispatch({ type: 'RESET_STATE' })
                     resetError()
                   }
-                } }
+                }}
               >
-                Start from scratch<br />
+                Start from scratch
+                <br />
                 with an empty study
               </Button>
             </ButtonGroup>
             <Card
               title="Guru meditation / technical details"
               className="mt-3"
-              collapsable={ true }
-              open={ false }
+              collapsable={true}
+              open={false}
             >
               <dl>
                 <dt>Error message</dt>
-                <dd>{ error?.toString() ?? <em>(unavailable)</em> }</dd>
+                <dd>{error?.toString() ?? <em>(unavailable)</em>}</dd>
                 <dt>Component stack</dt>
-                <dd style={{ whiteSpace: "pre-wrap" }}>
-                  { componentStack ?? <em>(unavailable)</em> }
+                <dd style={{ whiteSpace: 'pre-wrap' }}>
+                  {componentStack ?? <em>(unavailable)</em>}
                 </dd>
               </dl>
             </Card>
