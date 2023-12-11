@@ -53,7 +53,7 @@ const trialTemplate = new Sequence({
       timeout: 1500,
       // Because the color is set dynamically,
       // we need to set the correct response by hand
-      messageHandlers: {
+      hooks: {
         'before:prepare': function () {
           // Set the correct response
           // before the component is prepared
@@ -74,7 +74,7 @@ const trialTemplate = new Sequence({
       // is prepared at the last possible moment.
       tardy: true,
       // Generate feedback
-      messageHandlers: {
+      hooks: {
         'before:prepare': function () {
           if (this.aggregateParameters.feedback) {
             // Generate feedback if requested
