@@ -9,21 +9,11 @@ const cacheName = 'labjs-preview'
 // Prepare cache when builder is loaded ----------------------------------------
 
 // Add default static files to cache directly
-const bundledFiles = [
-  'lib/lab.css',
-  'lib/lab.dev.js',
-  'lib/lab.js',
-  'lib/lab.js.map',
-  'lib/loading.svg',
-]
+const bundledFiles = ['lib/lab.css', 'lib/loading.svg']
 
 export const prePopulateCache = async () => {
   const cache = await caches.open(cacheName)
-  await cache.addAll(
-    bundledFiles.map(
-      path => `/api/_defaultStatic/${path}`,
-    ),
-  )
+  await cache.addAll(bundledFiles.map(path => `/api/_defaultStatic/${path}`))
 }
 
 // Generate study preview ------------------------------------------------------
@@ -77,12 +67,6 @@ export const populateCache = async (
       // Update links to static library files
       ...Object.entries(study.bundledFiles).map(path =>
         linkStatic(cache, path, previewPath),
-      ),
-      // Copy development library version directly (TODO technical debt)
-      linkStatic(
-        cache,
-        ['lib/lab.dev.js', { type: 'application/javascript' }],
-        previewPath,
       ),
     ])
 

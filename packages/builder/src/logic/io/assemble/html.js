@@ -19,10 +19,10 @@ const renderNode = ([type, attrs={}]) => {
 const makeHeader = (state, { beforeHeader=[], libraryPath='lib', dev=false }={}) => {
   const defaultHeader = [
     ['comment', { content: 'lab.js library code' }],
-    ['script', {
-      'src': `${ libraryPath }/${ dev ? 'lab.dev.js' : 'lab.js' }`,
-      'data-labjs-script': 'library'
-    }],
+    // ['script', {
+    //   'src': `${ libraryPath }/${ dev ? 'lab.dev.js' : 'lab.js' }`,
+    //   'data-labjs-script': 'library'
+    // }],
     ['link', { rel: 'stylesheet', href: `${ libraryPath }/lab.css` }],
     ['comment', { content: 'study code and styles' }],
     ['script', { src: 'script.js', defer: true }],
