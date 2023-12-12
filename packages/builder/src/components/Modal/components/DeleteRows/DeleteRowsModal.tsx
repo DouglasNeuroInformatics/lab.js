@@ -7,7 +7,6 @@ function DeleteRowsModal({
   deleteAllRowsContext,
 }: {
   show: boolean
-  handleOpen: () => void
   handleClose: () => void
   deleteAllRowsContext: () => void
 }) {
