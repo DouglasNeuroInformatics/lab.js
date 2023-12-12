@@ -36,6 +36,7 @@ import sphinx_rtd_theme
 extensions = [
     'rst_video',
     'sphinx_reredirects',
+    'sphinx_js'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -303,3 +304,8 @@ texinfo_documents = [
 redirects = {
      "reference/style.rst": "learn/css/style.rst"
 }
+
+primary_domain = 'js'
+js_language = 'typescript'
+js_source_path = '../packages/library/src'
+jsdoc_config_path = '../packages/library/tsconfig.json'

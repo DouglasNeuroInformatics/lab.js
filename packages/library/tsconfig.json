@@ -15,5 +15,10 @@
     "verbatimModuleSyntax": false
   },
   "extends": "../../tsconfig.base.json",
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "typedocOptions": {
+    "entryPoints" : ["./src/index.ts"],
+    "plugin": ["typedoc-plugin-missing-exports"],
+    "exclude":[ "**/node_modules/**" ],
+  }
 }
