@@ -1,6 +1,3 @@
-// Shim keyboard event data for IE and Edge for the time being
-import 'shim-keyboard-event-key'
-
 // Split an eventString into event name, options and selector
 const splitEventString = function (
   eventString: string,
