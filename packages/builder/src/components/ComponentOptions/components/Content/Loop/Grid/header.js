@@ -10,12 +10,12 @@ import {
 } from 'reactstrap'
 import classnames from 'classnames'
 
-import { useArrayContext } from '../../../../../Form/array'
-import { ButtonCell, DefaultHeader } from '../../../../../Form/table'
-import Icon from '../../../../../Icon'
+import { useArrayContext } from '@/hooks/useArrayContext'
 import { FastField, useField } from 'formik'
 import { range } from 'lodash'
 import DeleteRowsModal from '@/components/Modal/components/DeleteRows/DeleteRowsModal'
+import { ButtonCell, DefaultHeader } from '@/components/Form/table'
+import Icon from '@/components/Icon'
 
 const CellTypeDropdown = ({ name, index, actions, disabled = false }) => {
   const [field, , helpers] = useField(name)
