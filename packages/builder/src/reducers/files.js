@@ -40,12 +40,6 @@ const defaultState = {
     }
   },
   bundledFiles: {
-    'lib/lab.js': {
-      type: 'application/javascript',
-    },
-    'lib/lab.js.map': {
-      type: 'text/plain',
-    },
     'lib/lab.css': {
       type: 'text/css',
     },
