@@ -26,7 +26,7 @@ export default class PreviewButton extends Component {
       // TODO: When we enable multiple
       // parallel instances, change labjs_preview
       // with a variable instance identifier
-      '/api/labjs_preview/index.html',
+      '/preview.html',
       windowState => this.setState({ windowState }),
     )
 

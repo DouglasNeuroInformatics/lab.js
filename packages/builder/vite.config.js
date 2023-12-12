@@ -10,6 +10,12 @@ const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   build: {
+    rollupOptions: {
+      input: {
+        index: path.resolve(__dirname, 'index.html'),
+        preview: path.resolve(__dirname, 'preview.html'),
+      },
+    },
     target: 'es2022',
   },
   esbuild: {
