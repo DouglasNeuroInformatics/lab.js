@@ -2,7 +2,6 @@ import { pickBy, cloneDeep, fromPairs, mapValues } from 'lodash'
 import { embeddedFiles } from '../../util/files'
 import { embedPlugins } from '../../plugins'
 import { makeDataURI } from '../../util/dataURI'
-import { makeScript } from './script.js'
 import { makeHTML } from './html.js'
 
 // TODO: At some later point, header options
@@ -62,12 +61,6 @@ const assemble = (state,
       // Additional files injected by the export modifier
       ...additionalFiles,
       // Generated experiment files
-      'script.js': {
-        content: makeDataURI(
-          makeScript(updatedState),
-          'application/javascript',
-        )
-      },
       'index.html': {
         content: makeDataURI(
           makeHTML(updatedState, updatedHeaderOptions),

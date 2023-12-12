@@ -216,10 +216,3 @@ export const makeStudyTree = state => {
   const componentTree = makeComponentTree(state.components, 'root')
   return serialize(componentTree, { space: 2 })
 }
-
-const makeStudyScript = studyTree => `window.__STUDY_TREE__ = ${studyTree}`
-
-export const makeScript = state => {
-  const studyTree = makeStudyTree(state)
-  return makeStudyScript(studyTree)
-}
