@@ -10,7 +10,6 @@
     "dev": "vite",
     "start": "yarn run static:library && react-app-rewired start",
     "start:demo": "HTTPS=true PORT=443 DOMAIN=labjs.felixhenninger.com yarn start",
-    "static:library": "shx mkdir -p public/api/_defaultStatic/lib/ && shx cp -R ../library/dist/labjs-starterkit/lib/* public/api/_defaultStatic/lib/",
     "test": "react-app-rewired test --env=jsdom"
   },
   "dependencies": {
