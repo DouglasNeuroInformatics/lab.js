@@ -5,34 +5,38 @@ import { template } from 'lodash'
 // (TODO: I'm not sure if this isn't too convoluted.
 // We might switch back to string-based node element
 // generation at some later point)
-const renderNode = ([type, attrs={}]) => {
+const renderNode = ([type, attrs = {}]) => {
   if (type === 'comment') {
-    return `<!-- ${ attrs.content } -->`
+    return `<!-- ${attrs.content} -->`
   } else {
     const node = document.createElement(type)
-    Object.entries(attrs)
-      .forEach(([attr, value]) => node.setAttribute(attr, value))
+    Object.entries(attrs).forEach(([attr, value]) =>
+      node.setAttribute(attr, value),
+    )
     return node.outerHTML
   }
 }
 
-const makeHeader = (state, { beforeHeader=[], libraryPath='lib', dev=false }={}) => {
+const makeHeader = (
+  state,
+  { beforeHeader = [], libraryPath = 'lib', dev = false } = {},
+) => {
   const defaultHeader = [
     ['comment', { content: 'lab.js library code' }],
     // ['script', {
     //   'src': `${ libraryPath }/${ dev ? 'lab.dev.js' : 'lab.js' }`,
     //   'data-labjs-script': 'library'
     // }],
-    ['link', { rel: 'stylesheet', href: `${ libraryPath }/lab.css` }],
+    ['link', { rel: 'stylesheet', href: `${libraryPath}/lab.css` }],
     ['comment', { content: 'study code and styles' }],
-    ['script', { src: 'script.js', defer: true }],
+    ['script', { src: 'script.js', defer: true, type: 'module' }],
     ['link', { rel: 'stylesheet', href: 'style.css' }],
   ]
 
   // TBC ...
   return [...beforeHeader, ...defaultHeader]
     .map(renderNode)
-    .map((l, i) => i === 0 ? l : `  ${ l }`) // Indent from second line
+    .map((l, i) => (i === 0 ? l : `  ${l}`)) // Indent from second line
     .join('\n')
 }
 
@@ -43,7 +47,7 @@ export const makeHTML = (state, headerOptions) => {
     escape: '',
     evaluate: '',
   })({
-    header: makeHeader(state, headerOptions)
+    header: makeHeader(state, headerOptions),
   })
 
   return updatedHTML
