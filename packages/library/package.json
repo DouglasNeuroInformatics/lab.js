@@ -1,5 +1,5 @@
 {
-  "name": "@lab.js/library",
+  "name": "lab.js",
   "version": "23.0.0-alpha2",
   "description": "Building blocks for web-based behavioral experiments",
   "homepage": "https://lab.js.org",
