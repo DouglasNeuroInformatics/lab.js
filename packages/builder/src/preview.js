@@ -1,8 +1,7 @@
-import * as lab from 'lab.js'
+// import lab from 'lab.js'
+// import * as lab2 from 'lab.js/dist/lab.legacy'
 
-console.log(window.location)
 console.log(lab)
-console.log(window.__STUDY_TREE__)
-// const study = lab.core.deserialize(window.__STUDY_TREE__)
-
-// study.run()
+const studyTree = JSON.parse(window.localStorage.getItem('STUDY_TREE_HACK'))
+const study = lab.core.deserialize(studyTree)
+study.run()

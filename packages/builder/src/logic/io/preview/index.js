@@ -3,6 +3,7 @@ import * as Sentry from '@sentry/react'
 import assemble from '../assemble'
 import { blobFromDataURI } from '../../util/dataURI'
 import { quotaExceededErrors } from '../../util/monitoring'
+import { makeStudyTree } from '../assemble/script'
 
 const cacheName = 'labjs-preview'
 
@@ -57,6 +58,10 @@ export const populateCache = async (
   )
 
   try {
+    window.localStorage.setItem(
+      'STUDY_TREE_HACK',
+      JSON.stringify(makeStudyTree(state)),
+    )
     const study = assemble(state, stateModifier, assemblyOptions)
 
     // Place generated study files into the cache
