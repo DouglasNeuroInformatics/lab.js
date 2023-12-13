@@ -49,7 +49,6 @@
     "clean": "find . -type d '(' -name 'build' -o -name 'dist' -o -name 'node_modules' ')' -prune -exec rm -rf {} \\;",
     "clean:docs": "cd docs && make clean",
     "clean:modules": "lerna clean",
-    "dev:legacy": "lerna run dev:legacy",
     "watch:docs": "onchange 'docs/**/*.rst' 'docs/**/*.py' -- npm run build:docs"
   },
   "resolutions": {

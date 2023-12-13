@@ -4,10 +4,9 @@
     "baseUrl": ".",
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "noEmit": false,
-    "outDir": "dist/types",
+    "outDir": "dist/es6",
     "paths": {
       "@/*": ["./src/*"]
     },

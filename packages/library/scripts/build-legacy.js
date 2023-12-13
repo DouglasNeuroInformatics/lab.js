@@ -12,7 +12,6 @@ const __dirname = path.dirname(__filename)
 const outDir = path.resolve(__dirname, '..', 'dist', 'legacy')
 
 const dev = process.argv.includes('--dev')
-const watch = process.argv.includes('--watch')
 
 await fs.mkdir(outDir, { recursive: true })
 
@@ -33,7 +32,7 @@ const options = {
   sourcemap: dev,
 }
 
-if (watch) {
+if (dev) {
   const ctx = await esbuild.context(options)
   await ctx.watch()
   console.log('Watching...')

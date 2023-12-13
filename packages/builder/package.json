@@ -8,7 +8,6 @@
     "build": "vite build",
     "deploy": "node scripts/deploy.js",
     "dev": "vite",
-    "dev:legacy": "vite",
     "start": "yarn run static:library && react-app-rewired start",
     "start:demo": "HTTPS=true PORT=443 DOMAIN=labjs.felixhenninger.com yarn start",
     "test": "react-app-rewired test --env=jsdom"
