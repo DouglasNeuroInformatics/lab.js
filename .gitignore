@@ -39,3 +39,5 @@ utilities/JSON import app/rsconnect
 # Website builder and output
 packages/website/zola
 packages/website/public
+
+dist/
