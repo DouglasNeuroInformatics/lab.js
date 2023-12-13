@@ -60,6 +60,7 @@
     "dev": "concurrently \"yarn dev:css\" \"yarn dev:js\"",
     "dev:css": "postcss --watch --local-plugins -u postcss-preset-env -o dist/css/lab.css src/starterkit/lib/lab.css",
     "dev:js": "tsc --watch",
+    "dev:legacy": "node scripts/build-legacy.js --dev --watch",
     "lint": "eslint --fix src",
     "prepare": "yarn run build:starterkit",
     "prettier": "prettier --write src",
