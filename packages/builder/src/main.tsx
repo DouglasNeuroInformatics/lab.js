@@ -12,7 +12,9 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 // App content
 import App from './components/App'
 import './index.css'
+import * as lab from 'lab.js'
 
+console.log(lab.core)
 // Sentry error reporting for production releases
 // (if a DSN is specified as an environment parameter, that is)
 import * as Sentry from '@sentry/react'
